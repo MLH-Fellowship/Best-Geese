@@ -1,10 +1,18 @@
 #!flask/bin/python
 from flask import Flask,jsonify
+from pymongo import MongoClient
 
 app = Flask(__name__)
 
-questions = [
-    {
+client = MongoClient("mongodb://127.0.0.1:27017") # host uri 
+db = client.mymongodb # Select the database
+question_collection = db.question # Sellect the collection name
+initial_questions = [question for question in question_collection.find()]
+
+
+
+if (len(initial_questions)) == 0:
+    question_collection.insert({
       "id" : 1,
       "tag" : "biology",
       "difficulty" : "easy",
@@ -14,7 +22,8 @@ questions = [
       "option_3" : "sleeping",
       "option_4" : "eating",
       "correct_answer " : "option_1"
-    }, {
+    })
+    question_collection.insert({
       "id" : 2,
       "tag" : "biology",
       "difficulty" : "easy",
@@ -24,33 +33,71 @@ questions = [
       "option_3" : "the answer to everything",
       "option_4" : "moleculular structures",
       "correct_answer " : "option_2"
-	}
-]
+    })
 
-@app.route('/BestGeese/api/v1.0/questions',methods=['GET'])
+@app.route('/api/questions',methods=['GET'])
 def get_guestions():
-    return jsonify({'questions': questions})
+    get_questions = question_collection.find()
+    question_list = []
+    for question in get_questions:
+        question_list.append({"tag" : question['tag'],
+                            "difficulty" :question['difficulty'],
+                            "question" :question['question'],
+                            "option_1" :question['option_1'],
+                            "option_2" :question['option_2'],
+                            "option_3" :question['option_3'],
+                            "option_4" : question['option_4'],
+                            "correct_answer":question['correct_answer'],
+                            "id" : question['id']
+        })
+    return jsonify({'questions': question_list})
 
 
-@app.route('/BestGeese/api/v1.0/create-question',methods = ['GET'])
+@app.route('/api/create-question',methods = ['GET'])
 def create_question():
-    questions.append({
-      "id" : len(questions),
-      "tag" : "physics",
-      "difficulty" : "medium",
-      "question" : "What is the strongest substance in the universe?",
-      "option_1" : "anti-matter",
-      "option_2" : "dark-matter",
-      "option_3" : "protons",
-      "option_4" : "nuclear pasta",
-      "correct_answer " : "option_4"
-	})
+    # questions.append({
+    #   "id" : len(questions),
+    #   "tag" : "physics",
+    #   "difficulty" : "medium",
+    #   "question" : "What is the strongest substance in the universe?",
+    #   "option_1" : "anti-matter",
+    #   "option_2" : "dark-matter",
+    #   "option_3" : "protons",
+    #   "option_4" : "nuclear pasta",
+    #   "correct_answer " : "option_4"
+	# })
+    questions = question_collection.find()
+    new_question = {"id":questions.count(),
+                    "tag" : "math",
+                            "difficulty" :'hard',
+                            "question" :"In reality c in e = mc^2 means? ",
+                            "option_1" :'speed of light',
+                            "option_2" :'speed of continuity',
+                            "option_3" :'causation energy',
+                            "option_4" : 'speed of causation',
+                            "correct_answer":"option_4",
+                     }
+    question_collection.insert(new_question)
+    all_questions = question_collection.find()
+    question_list = []
+    for question in all_questions:
+        question_list.append({"tag" : question['tag'],
+                            "difficulty" :question['difficulty'],
+                            "question" :question['question'],
+                            "option_1" :question['option_1'],
+                            "option_2" :question['option_2'],
+                            "option_3" :question['option_3'],
+                            "option_4" : question['option_4'],
+                            "correct_answer":question['correct_answer'],
+                            "id" : question['id']
+        })
+    return jsonify({'questions': question_list})
 
-@app.route('/BestGeese/api/v1.0/questions/<int:question_id>',methods=['GET'])
+@app.route('/api/questions/<int:question_id>',methods=['GET'])
 def get_question(question_id):
-    question = [question for question in questions if question['id'] == question_id]
-    if len(question) == 0:
-        abort(404)
+    question =  question_collection.find({'id': question_id})
+    if question.count() == 0:
+        return jsonify({'question': None})
     return jsonify({'question': question[0]})
 
 if __name__ == '__main__':

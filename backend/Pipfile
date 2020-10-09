@@ -10,6 +10,7 @@ flask = "*"
 flask-mongoengine = "*"
 flask-mail = "*"
 flask-restful = "*"
+flask-bcrypt = "*"
 
 [requires]
 python_version = "3.8"

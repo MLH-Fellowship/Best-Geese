@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 flask = "*"
 flask-mongoengine = "*"
+flask-mail = "*"
+flask-restful = "*"
 
 [requires]
 python_version = "3.8"

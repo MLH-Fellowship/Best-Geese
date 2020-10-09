@@ -12,6 +12,7 @@ flask-mail = "*"
 flask-restful = "*"
 flask-bcrypt = "*"
 flask-jwt-extended = "*"
+mongoengine-goodjson = "*"
 
 [requires]
 python_version = "3.8"

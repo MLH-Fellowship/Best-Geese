@@ -1,7 +1,8 @@
 from .db import db
 from flask_bcrypt import generate_password_hash,check_password_hash
+import mongoengine_goodjson as gj
 
-class Question(db.Document):
+class Question(gj.Document):
     tag = db.StringField(required=True)
     difficulty = db.StringField(required=True)
     question = db.StringField(required=True,unique=True)
@@ -12,7 +13,7 @@ class Question(db.Document):
     correct_answer = db.StringField(required=True)
 
 
-class User(db.Document):
+class User(gj.Document):
     email = db.EmailField(required=True,unique=True)
     password = db.StringField(required=True,min_length=6)
 

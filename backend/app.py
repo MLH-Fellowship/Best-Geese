@@ -1,10 +1,8 @@
-from flask import Flask
 from http import HTTPStatus
+from resources.routes import initialize_routes
 from database.db import initialize_db
-from resources.question import questions
-
-
-app = Flask(__name__)
+from flask_restful import Api
+from flask import Flask
 
 # questions = [
 #     {
@@ -19,13 +17,15 @@ app = Flask(__name__)
 #     },
 #     ]
 
+app = Flask(__name__)
+api = Api(app)
 
 app.config['MONGODB_SETTINGS'] = {
-    'host': 'mongodb://localhost/Best-Geese'
+    'host': 'mongodb://localhost/BestGeese'
 }
 
 initialize_db(app)
-app.register_blueprint(questions)
+initialize_routes(api)
 
 @app.route('/')
 def hello():

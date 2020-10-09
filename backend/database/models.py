@@ -19,7 +19,6 @@ class User(db.Document):
     def hash_password(self):
         self.password = generate_password_hash(self.password).decode('utf8')
 
-    def check_password(self):
+    def check_password(self,password):
         return check_password_hash(self.password,password)
 
-        

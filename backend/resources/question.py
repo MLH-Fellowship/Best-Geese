@@ -36,3 +36,4 @@ class QuestionApi(Resource):
         return Response(questions,
                     mimetype="application/json",
                     status = 200)
+                    

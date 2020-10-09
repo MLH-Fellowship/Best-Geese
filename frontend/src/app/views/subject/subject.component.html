@@ -1,0 +1,9 @@
+<h2>Subjects</h2>
+
+<div *ngFor="let subject of subjects;">
+    <h3>
+        <a [title]="subject.name">
+            {{ subject.name}}
+        </a>
+    </h3>
+</div>

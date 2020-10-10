@@ -112,12 +112,11 @@ class PlayApi(Resource):
         # Tags
         tag = request.args.get('tag',None,str).lower()
         if (tag not in ['biology','physics','chemistry','mathematics','computer science','art']) or (tag is None):
-            print('None')
             return tag_message, HTTPStatus.BAD_REQUEST
 
         # Difficulty
         difficulty = request.args.get('difficulty').lower()
-        if (difficulty not in ['easy','medium','hard','mix']) or ( difficulty is None):
+        if (difficulty not in ['easy','medium','hard','mix']) or (difficulty is None):
             return difficulty_message,HTTPStatus.BAD_REQUEST
 
         # Number of Questions

@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     component: SubjectComponent,
     path: 'subjects'
+  },
+  {
+    component: ProgressComponent,
+    path: 'progress'
   }
 ];
 

@@ -1,0 +1,18 @@
+.container {
+    display: inline-block;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+}
+
+.nav-item {
+    padding: 2px;
+    margin-left: 7px;
+}

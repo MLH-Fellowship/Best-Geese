@@ -1,1 +1,8 @@
-.vscode
+# Editor Files
+.vscode/
+
+# Python Virtulenv
+.venv/
+
+# Python cache
+__pycache__

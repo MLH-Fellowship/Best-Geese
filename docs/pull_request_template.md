@@ -1,9 +1,9 @@
 
 ## Component 
-- [] Frontend
-- [] Backend
-- [] Design
-- [] Documentation
+- [ ] Frontend
+- [ ] Backend
+- [ ] Design
+- [ ] Documentation
 
 ## Please explain in bullet points:
 ### The changes you are making with this pull request?

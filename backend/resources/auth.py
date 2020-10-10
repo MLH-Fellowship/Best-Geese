@@ -7,6 +7,7 @@ from flask_restful import Resource
 from http import HTTPStatus
 import datetime
 
+
 class SignupApi(Resource):
     def post(self):
         body = request.get_json(force=True)

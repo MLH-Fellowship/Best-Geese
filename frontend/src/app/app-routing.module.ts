@@ -1,8 +1,9 @@
-import { SubjectComponent } from './views/subject/subject.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomepageComponent } from './views/homepage/homepage.component';
 import { ProgressComponent } from './views/progress/progress.component';
+import { SubjectComponent } from './views/subject/subject.component';
+// import { MainNavComponent } from './shared/main-nav';
 
 const routes: Routes = [
   {

@@ -87,6 +87,7 @@ class QuestionApi(Resource):
 
 
 class PlayApi(Resource):
+    
     @jwt_required
     def get(self):
         """
@@ -108,7 +109,6 @@ class PlayApi(Resource):
 
     
         # Parse URL arguments/parameters
-
         # Tags
         tag = request.args.get('tag',None,str).lower()
         if (tag not in ['biology','physics','chemistry','mathematics','computer science','art']) or (tag is None):
@@ -121,11 +121,11 @@ class PlayApi(Resource):
 
         # Number of Questions
         num_of_questions = int(request.args.get('num_of_questions'))
-        if (num_of_questions is None) or  ((num_of_questions < 10) or (num_of_questions > 50)) :
+        if (num_of_questions is None) or  ((num_of_questions < 10) or (num_of_questions > 50)):
             return num_of_questions_message, HTTPStatus.BAD_REQUEST
 
         if difficulty == 'mix':
-            questions = Question.objects(difficulty=difficulty).limit(num_of_questions).to_json()
+            questions = Question.objects(tag=tag).limit(num_of_questions).to_json()
         
         questions = Question.objects(tag=tag,difficulty=difficulty).limit(num_of_questions).to_json()
 

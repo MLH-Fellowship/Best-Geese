@@ -1,4 +1,6 @@
+import { ConditionalExpr } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/core/auth.service';
 import { QuestionProviderService } from 'src/app/core/question-provider.service';
 import { IQuestion } from 'src/app/interfaces/iquestion';
 
@@ -12,7 +14,7 @@ export class QuestionListComponent implements OnInit {
   constructor(private questionProvider: QuestionProviderService) {
   }
   
-  getQuestions() {
+  getQuestions(): void {
     this.questionProvider.getAllQuestions();
     this.questionProvider.questions$.subscribe(res => this.questions = res);
   }

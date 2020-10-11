@@ -27,39 +27,59 @@ class EmailAlreadyExistsError(Exception):
 class UnauthorizedError(Exception):
     pass
 
+class InvalidTagError(Exception):
+    pass
 
+class InvalidDifficultyError(Exception):
+    pass
+
+class InvalidNumOfQuestionsError(Exception):
+    pass
+
+# Step 1 - Error Messages and Printing Error messages if wrong input.
 
 errors = {
     "InternalServerError": {
         "message": "Something went wrong",
-        "status": 500
+        "status":  HTTPStatus.INTERNAL_SERVER_ERROR
     },
      "SchemaValidationError": {
          "message": "Request is missing required fields",
-         "status": 400
+         "status": HTTPStatus.BAD_REQUEST
      },
      "QuestionAlreadyExistsError": {
          "message": "Question with the same text already exists",
-         "status": 400
+         "status": HTTPStatus.BAD_REQUEST
      },
      "UpdatingQuestionError": {
          "message": "Updating question added by other is forbidden",
-         "status": 403
+         "status": HTTPStatus.FORBIDDEN
      },
      "DeletingMovieError": {
          "message": "Deleting question added by other is forbidden",
-         "status": 403
+         "status": HTTPStatus.BAD_REQUEST
      },
      "QuestionotExistsError": {
          "message": "Question with given id doesn't exists",
-         "status": 400
+         "status": HTTPStatus.BAD_REQUEST
      },
      "EmailAlreadyExistsError": {
          "message": "User with given email address already exists",
-         "status": 400
+         "status": HTTPStatus.BAD_REQUEST
      },
      "UnauthorizedError": {
          "message": "Invalid username or password",
-         "status": 401
-     }
+         "status": HTTPStatus.UNAUTHORIZED
+     },
+     "InvalidTagError" :{
+         "message" : 'Tags parameter is invalid',
+         "status": HTTPStatus.BAD_REQUEST 
+     },
+     "InvalidDifficultyError" : {
+         "message" : "Difficulty is invalid",
+         "status" : HTTPStatus.BAD_REQUEST        
+     },
+     "InvalidNumOfQuestionsError" : {
+         'message' : 'Number of Questions Parameter is invalid',
+         'status' : HTTPStatus.BAD_REQUEST}
 }

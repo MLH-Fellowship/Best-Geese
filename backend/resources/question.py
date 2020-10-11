@@ -10,6 +10,12 @@ from flask_mongoengine import MongoEngine
 from mongoengine.queryset import QuerySet
 import random
 
+from mongoengine.errors import FieldDoesNotExist, \
+    NotUniqueError,DoesNotExist,ValidationError,InvalidQueryError
+from resources.errors import SchemaValidationError, QuestionAlreadyExistsError, \
+    InternalServerError, UpdatingQuestionError, DeletingQuestionError, QuestionNotExistsError, \
+        InvalidTagError, InvalidDifficultyError, InvalidNumOfQuestionsError
+
 class QuestionsApi(Resource):
     @jwt_required
     def get(self):
@@ -33,10 +39,15 @@ class QuestionsApi(Resource):
         '/api/questions'
         
         """
-        body = request.get_json(force =True)
-        question = Question(**body).save()
-        id = question.id
-        return{'id':str(id)},HTTPStatus.OK
+        try:
+            body = request.get_json(force =True)
+            question = Question(**body).save()
+            id = question.id
+            return{'id':str(id)},HTTPStatus.OK
+        except(FieldDoesNotExist,ValidationError):
+            raise SchemaValidationError
+        except NotUniqueError:
+            raise QuestionAlreadyExistsError
 
 
 class QuestionApi(Resource):
@@ -51,9 +62,16 @@ class QuestionApi(Resource):
         Returns:
             (int): [HTTPStatus.OK (200)]
         """
-        body = request.get_json(force =True)
-        Question.objects.get(id=id).update(**body)
-        return '',HTTPStatus.OK
+        try:
+            body = request.get_json(force =True)
+            Question.objects.get(id=id).update(**body)
+            return '',HTTPStatus.OK
+        except InvalidQueryError:
+            raise SchemaValidationError
+        except DoesNotExist:
+            raise UpdatingQuestionError
+        except Exception:
+            raise InternalServerError
     
     @jwt_required
     def delete(self,id):
@@ -66,8 +84,13 @@ class QuestionApi(Resource):
         Returns:
             (int): HTTPStatus.OK (200)
         """
-        question = Question.objects.get(id=id).delete()
-        return '',HTTPStatus.OK
+        try:
+            question = Question.objects.get(id=id).delete()
+            return '',HTTPStatus.OK
+        except DoesNotExist:
+            raise DeletingMovieError
+        except Exception:
+            raise InternalServerError
 
     def get(self,id):
         """
@@ -80,11 +103,15 @@ class QuestionApi(Resource):
             question: As a json response. 
 
         """
-        questions = Question.objects.get(id=id).to_json()
-        return Response(questions,
-                    mimetype="application/json",
-                    status = 200)
-
+        try:
+            questions = Question.objects.get(id=id).to_json()
+            return Response(questions,
+                            mimetype="application/json",
+                            status = 200)
+        except DoesNotExist:
+            raise QuestionNotExistsError
+        except Exception:
+            raise InternalServerError
 
 class PlayApi(Resource):
     
@@ -101,37 +128,32 @@ class PlayApi(Resource):
         Returns:
             questions : As a json response. 
         """
-
-                 # Step 1 - Error Messages and Printing Error messages if wrong input.
-        tag_message = {'error' : 'Tags parameter is invalid'}
-        difficulty_message = {'error' : 'Difficulty is invalid'}
-        num_of_questions_message = {'error' : 'Number of Questions Parameter is invalid'}
-
     
         # Parse URL arguments/parameters
         # Tags
         tag = request.args.get('tag',None,str).lower()
         if (tag not in ['biology','physics','chemistry','mathematics','computer science','art']) or (tag is None):
-            return tag_message, HTTPStatus.BAD_REQUEST
-
-        # Difficulty
+            return InvalidTagError
         difficulty = request.args.get('difficulty').lower()
         if (difficulty not in ['easy','medium','hard','mix']) or (difficulty is None):
-            return difficulty_message,HTTPStatus.BAD_REQUEST
+            return InvalidDifficultyError,HTTPStatus.BAD_REQUEST
 
         # Number of Questions
         num_of_questions = int(request.args.get('num_of_questions'))
         if (num_of_questions is None) or  ((num_of_questions < 10) or (num_of_questions > 50)):
-            return num_of_questions_message, HTTPStatus.BAD_REQUEST
+            return InvalidNumOfQuestionsError, HTTPStatus.BAD_REQUEST
 
-        if difficulty == 'mix':
-            questions = Question.objects(tag=tag).limit(num_of_questions).to_json()
-        
-        questions = Question.objects(tag=tag,difficulty=difficulty).limit(num_of_questions).to_json()
+        try:
+            if difficulty == 'mix':
+                questions = Question.objects(tag=tag).limit(num_of_questions).to_json()
+            questions = Question.objects(tag=tag,difficulty=difficulty).limit(num_of_questions).to_json()
+            return Response(questions, mimetype="application/json", status = 200)
+        except DoesNotExist:
+            raise QuestionNotExistsError
+        except Exception:
+            raise InternalServerError
 
-        return Response(questions,
-                    mimetype="application/json",
-                    status = 200)
+
 
 
                     

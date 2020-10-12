@@ -19,7 +19,7 @@
 
 ## About
 
-Minimum Viable Product:
+### Minimum Viable Product:
 
 Students can request a quiz based on subject tags and number of questions they would like in each subject. Each student can input their own questions they'd like to include in the quiz.
 
@@ -28,6 +28,7 @@ The View Progress function allows students to view their past history of attempt
 ## Contributors
 
 Front-end services and UX: Gerald Marquez & David Knox
+
 Database services: Shayan Riyaz
 
 ## How to run
@@ -36,7 +37,7 @@ API currently not exposed.
 
 [License]: https://raw.githubusercontent.com/MLH-Fellowship/Best-Geese/main/assets/Dr-Goose.png
 
-[License-Badge]: https://img.shields.io/github/license
+[License-Badge]: https://img.shields.io/badge/license-MIT-green.svg
 [Backlog-Badge]: https://img.shields.io/badge/project-backlog-78bdf2.svg
 [Academy-Badge]: https://img.shields.io/badge/learn-academy-f3aeae.svg
 

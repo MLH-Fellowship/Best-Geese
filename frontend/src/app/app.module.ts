@@ -7,6 +7,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomepageComponent } from './views/homepage/homepage.component';
 import { ProgressComponent } from './views/progress/progress.component';
 import { SubjectComponent } from './views/subject/subject.component';
+import { QuestionListComponent } from './shared/question-list/question-list.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -15,10 +17,12 @@ import { SubjectComponent } from './views/subject/subject.component';
     HomepageComponent,
     ProgressComponent,
     SubjectComponent,
+    QuestionListComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

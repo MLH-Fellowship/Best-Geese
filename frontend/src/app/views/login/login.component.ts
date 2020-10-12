@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(event) {
+    event.preventDefault()
     console.log(event)
   }
 

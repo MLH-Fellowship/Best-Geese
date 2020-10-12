@@ -1,7 +1,7 @@
 <div fxLayoutAlign="center center" fxFlexFill class="main-div">
     <mat-card fxFlex="35">
         <mat-toolbar color="primary">Login</mat-toolbar>
-        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+        <form (submit)="loginUser($event)" fxLayoutAlign="stretch" fxLayout="column" class="login-form">
             <mat-form-field>
                 <mat-label>Username</mat-label>
                 <input matInput placeholder="Enter Username">

@@ -13,10 +13,6 @@
 [![Backlog][Backlog-Badge]][Backlog]
 [![Documentation][Academy-Badge]][Academy]
 
-[![Slack][Slack-Badge]][Slack]
-[![Videos][Videos-Badge]][Videos]
-[![Twitter][Twitter-Badge]][Twitter]
-
 ## About
 
 ### Minimum Viable Product:
@@ -24,6 +20,10 @@
 Students can request a quiz based on subject tags and number of questions they would like in each subject. Each student can input their own questions they'd like to include in the quiz.
 
 The View Progress function allows students to view their past history of attempting questions, and compare against a general attempt rate per question type.
+
+## Walkthrough
+
+Short walkthrough with accompanying screenshots here
 
 ## Contributors
 
@@ -34,6 +34,10 @@ Database services: Shayan Riyaz
 ## How to run
 
 API currently not exposed.
+
+[![Slack][Slack-Badge]][Slack]
+[![Videos][Videos-Badge]][Videos]
+[![Twitter][Twitter-Badge]][Twitter]
 
 [License]: https://raw.githubusercontent.com/MLH-Fellowship/Best-Geese/main/assets/Dr-Goose.png
 

@@ -1,9 +1,12 @@
+# backend/resources/auth.py
+
 from flask import request,Response
 from flask_jwt_extended import create_access_token
 from database.models import User
 from flask_restful import Resource
 from http import HTTPStatus
 import datetime
+
 
 class SignupApi(Resource):
     def post(self):

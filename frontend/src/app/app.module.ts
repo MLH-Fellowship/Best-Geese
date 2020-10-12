@@ -11,6 +11,8 @@ import { SubjectComponent } from './views/subject/subject.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './shared/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { QuestionListComponent } from './shared/question-list/question-list.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     ProgressComponent,
     SubjectComponent,
     MainNavComponent,
+    QuestionListComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     BrowserAnimationsModule,
     LayoutModule,
     MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,4 @@
+import { MainNavComponent } from './shared/main-nav/main-nav.component';
 import { LoginComponent } from './views/login/login.component';
 import { NgModule } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -8,7 +9,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 // import { constants } from 'buffer';
@@ -21,14 +22,19 @@ const MaterialComponents = [
   MatListModule,
   MatFormFieldModule,
   MatInputModule,
-  MatCardModule
+  MatCardModule,
+  FlexLayoutModule,
 ];
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
   ],
-  imports: [MaterialComponents],
-  exports: [MaterialComponents]
+  imports: [
+    MaterialComponents
+  ],
+  exports: [
+    MaterialComponents
+  ]
 })
 export class MaterialModule { }

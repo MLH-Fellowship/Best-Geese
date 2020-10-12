@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomepageComponent } from './views/homepage/homepage.component';
 import { ProgressComponent } from './views/progress/progress.component';
 import { SubjectComponent } from './views/subject/subject.component';
+import { LoginComponent } from './views/login/login.component';
 // import { MainNavComponent } from './shared/main-nav';
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     component: ProgressComponent,
     path: 'progress'
+  },
+  {
+    component: LoginComponent,
+    path: 'login'
   }
 ];
 

@@ -1,4 +1,4 @@
-import { MaterialModule } from './material/material.module';
+import { MaterialModule } from './material.module';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';

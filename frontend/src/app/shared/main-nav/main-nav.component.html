@@ -14,8 +14,8 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Best Geese</span>
-      <div fxFlex dir="rtl" fxLayoutGap="20px">
+      <span><a routerLink="/">Best Geese</a></span>
+      <div fxFlex dir="rtl" fxLayoutGap="20px" fxLayout="row">
         <a mat-list-item class="toolbar-item" routerLink='login'>Login</a>
         <a mat-list-item class="toolbar-item" routerLink='signup'>Sign up</a>
       </div>

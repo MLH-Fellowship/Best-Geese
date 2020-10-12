@@ -13,6 +13,8 @@ import { MainNavComponent } from './shared/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { QuestionListComponent } from './shared/question-list/question-list.component';
 import { HttpClientModule } from '@angular/common/http'
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { HttpClientModule } from '@angular/common/http'
     BrowserAnimationsModule,
     LayoutModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

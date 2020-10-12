@@ -1,4 +1,3 @@
-import { MainNavComponent } from './shared/main-nav/main-nav.component';
 import { LoginComponent } from './views/login/login.component';
 import { NgModule } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';

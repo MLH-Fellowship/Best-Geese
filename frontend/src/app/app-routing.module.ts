@@ -1,3 +1,4 @@
+import { SignupComponent } from './views/signup/signup.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomepageComponent } from './views/homepage/homepage.component';
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     component: LoginComponent,
     path: 'login'
+  },
+  {
+    component: SignupComponent,
+    path: 'signup'
   }
 ];
 

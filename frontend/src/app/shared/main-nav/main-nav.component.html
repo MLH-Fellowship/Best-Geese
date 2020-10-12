@@ -15,6 +15,10 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Best Geese</span>
+      <div fxFlex dir="rtl" fxLayoutGap="20px">
+        <a mat-list-item class="toolbar-item" routerLink='login'>Login</a>
+        <a mat-list-item class="toolbar-item" routerLink='signup'>Sign up</a>
+      </div>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

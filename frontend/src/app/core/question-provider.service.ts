@@ -31,24 +31,38 @@ export class QuestionProviderService {
      .subscribe(response => this._questions.next(response as IQuestion[]));
    }
 
-   /// This adds a single question to the database.
+   /**
+    * This adds a single question to the database.
+    * @param question 
+    */
    public addQuestion(question: IQuestion): void {
      this.http.post(`${this.backendUrl}/questions`, question, {headers: this.authHeader});
    }
 
-   /// This updates a question in the database. The optional id property in IQuestion must be filled out for this to function.
+   /**
+    * This updates a question in the database. The optional id property in IQuestion must be filled out for this to function.
+    * @param question 
+    */
    public updateQuestion(question: IQuestion) : void {
      if (question.id == undefined) {return}
      this.http.put(`${this.backendUrl}/questions`, question, {headers: this.authHeader});
    }
 
-   /// This takes a question object with the id property or just an id, and deletes that from the database.
+   /**
+    *This takes a question object with the id property or just an id, and deletes that from the database.
+    * @param questionID 
+    */
    public deleteQuestion(questionID: string | IQuestion) {
      let URIend = typeof questionID == "string" ? questionID : questionID.id || undefined;
      this.http.delete(`${this.backendUrl}/questions/${URIend}`);
    }
 
-   /// This function will set the questions in the service to a specific quiz generated at runtime.
+   /**
+    * Sets the questions of the service to a quiz generated based on params.
+    * @param questions 
+    * @param difficulty 
+    * @param subject 
+    */
    public getQuiz(questions: number, difficulty: string, subject: string): void {
     this.http.get(`${this.backendUrl}/play/`, {
       headers: this.authHeader,

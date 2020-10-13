@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/core/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  registerUserData = {
+    email: '',
+    pass: ''
+  }
+  constructor(private _auth: AuthService) { }
 
-  constructor() { }
+  ngOnInit(): void{
+  }
 
-  ngOnInit(): void {
+  signUp() {
+    console.log(this.registerUserData)
+    this._auth.signUp(this.registerUserData.email, this.registerUserData.pass)
   }
 
 }

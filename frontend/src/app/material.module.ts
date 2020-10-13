@@ -1,6 +1,3 @@
-import { LoginComponent } from './views/login/login.component';
-import { SignupComponent } from './views/signup/signup.component';
-
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -29,8 +26,6 @@ const MaterialComponents = [
 
 @NgModule({
   declarations: [
-    LoginComponent,
-    SignupComponent,
   ],
   imports: [
     MaterialComponents

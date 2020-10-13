@@ -7,21 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  loginUserData = {
+    email: '',
+    pass: ''
+  }
   constructor(
-    private Auth: AuthService
+    private _auth: AuthService
   ) { }
 
   ngOnInit(): void {
   }
 
-  loginUser(event) {
-    event.preventDefault()
-    const target = event.target
-    const username = target.querySelector('#email').value
-    const password = target.querySelector('#password').value
-
-    console.log(username, password)
+  loginUser() {
+    console.log(this.loginUserData)
+    this._auth.logIn(this.loginUserData.email, this.loginUserData.pass)
   }
 
 }

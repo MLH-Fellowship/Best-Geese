@@ -8,6 +8,7 @@ from flask_restful import Api
 from flask_bcrypt import Bcrypt
 from flask import Flask
 from flask_jwt_extended import JWTManager
+#from flask_mail import Mail
 
 
 app = Flask(__name__)
@@ -16,6 +17,7 @@ api = Api(app)
 api = Api(app,errors=errors)
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
+#mail = Main(app)
 
 
 app.config['MONGODB_SETTINGS'] = {
@@ -25,6 +27,7 @@ app.config['MONGODB_SETTINGS'] = {
 initialize_db(app)
 initialize_routes(api)
 
+
 @app.route('/')
 def hello():
     """
@@ -33,4 +36,5 @@ def hello():
     return {'Hello':'World'}
 
 if __name__ == "__main__":
-    app.run(port=5000,debug=True)
+    app.run(port=5000,
+            debug=True)

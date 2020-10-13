@@ -21,7 +21,7 @@ export class QuestionProviderService {
     // but we do need the http client to be available within this service.
     // The authHeader property needs to be set after auth is initialized, as seen below.
     this.authHeader = {
-      headers: this.auth.authToken || localStorage.getItem('auth_token' || "")
+      "Authorization": "Bearer " + (this.auth.authToken || localStorage.getItem('auth_token' || ""))
     };
    }
 
@@ -64,9 +64,8 @@ export class QuestionProviderService {
     * @param subject 
     */
    public getQuiz(questions: number, difficulty: string, subject: string): void {
-    this.http.get(`${this.backendUrl}/play/`, {
+    this.http.get(`${this.backendUrl}/play/?tag=${subject}&difficulty=${difficulty}&num_of_questions=${questions}`, {
       headers: this.authHeader,
-      params: {'tag': subject, 'num_of_questions': questions.toString(), 'difficulty': difficulty}
     }).subscribe(response => this._questions.next(response as IQuestion[]));
    }
 

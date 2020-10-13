@@ -14,6 +14,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { QuestionListComponent } from './shared/question-list/question-list.component';
 import { HttpClientModule } from '@angular/common/http'
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { QuizComponent } from './views/quiz/quiz.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     SubjectComponent,
     MainNavComponent,
     QuestionListComponent,
+    QuizComponent,
   ],
   imports: [
     BrowserModule,

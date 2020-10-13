@@ -5,6 +5,13 @@ __pycache__/
 # C extensions
 *.so
 
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 # Distribution / packaging
 .Python
 build/

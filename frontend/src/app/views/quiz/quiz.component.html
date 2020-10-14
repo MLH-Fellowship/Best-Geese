@@ -1,0 +1,11 @@
+<mat-card *ngFor="let question of questions" >
+    <app-question [question]="question" (answer)="onAnswer($event)"></app-question>
+</mat-card>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title> Results! </mat-card-title>
+        <button mat-flat-button color="accent" (click)="finish()">Check!</button>
+    </mat-card-header>
+    
+    <mat-card-content>{{result}}</mat-card-content>
+</mat-card>

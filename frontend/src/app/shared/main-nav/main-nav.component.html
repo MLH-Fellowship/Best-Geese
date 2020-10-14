@@ -1,6 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+  <!-- <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'push' : 'side'" [opened]="(isHandset$ | async) === false"> -->
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [mode]="(true) ? 'push' : 'side'" [closed]="true">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink='index'>Home</a>
@@ -10,11 +11,15 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="true">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Best Geese</span>
+      <span><a routerLink="/">Best Geese</a></span>
+      <div fxFlex dir="rtl" fxLayoutGap="20px" fxLayout="row">
+        <a mat-list-item class="toolbar-item" routerLink='login' *ngIf="!_authService.isAuthenticated()">Login</a>
+        <a mat-list-item class="toolbar-item" routerLink='signup' *ngIf="!_authService.isAuthenticated()">Sign up</a>
+        <a mat-list-item class="toolbar-item" routerLink='login' *ngIf="_authService.isAuthenticated()" (click)="_authService.signOut()">Logout</a>
+      </div>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

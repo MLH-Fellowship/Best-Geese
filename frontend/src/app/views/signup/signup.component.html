@@ -1,1 +1,22 @@
-<p>signup works!</p>
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="30">
+        <mat-toolbar color="primary">Sign up</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="signup-form">
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput type="text" [(ngModel)]="registerUserData.email" name="email" placeholder="Enter Email" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" [(ngModel)]="registerUserData.pass" name="pass"placeholder="Enter Password" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Confirm Password</mat-label>
+                <input matInput type="password" placeholder="Reenter Password" required>
+            </mat-form-field>
+            <button mat-raised-button (click)="signUp()" type="submit">Sign-up</button>
+        </form>
+    </mat-card>
+</div>

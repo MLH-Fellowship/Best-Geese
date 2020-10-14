@@ -1,0 +1,8 @@
+<mat-card>
+    <mat-card-title>{{question.question}}</mat-card-title>
+    <mat-selection-list #optionList [multiple]="false">
+        <mat-list-option *ngFor='let option of options' [value]="option" (click)="answerQuestion(option)">
+            {{ option }}
+        </mat-list-option>
+    </mat-selection-list>
+</mat-card>

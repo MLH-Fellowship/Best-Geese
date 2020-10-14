@@ -1,16 +1,20 @@
+import { AuthGuard } from './core/auth.guard';
+import { SignupComponent } from './views/signup/signup.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomepageComponent } from './views/homepage/homepage.component';
 import { ProgressComponent } from './views/progress/progress.component';
 import { SubjectComponent } from './views/subject/subject.component';
 import { LoginComponent } from './views/login/login.component';
+import { QuizComponent } from './views/quiz/quiz.component';
 // import { MainNavComponent } from './shared/main-nav';
 
 const routes: Routes = [
   {
     component: HomepageComponent,
     path: 'index',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    // canActivate: [AuthGuard]
   },
   {
     redirectTo: 'index',
@@ -28,6 +32,14 @@ const routes: Routes = [
   {
     component: LoginComponent,
     path: 'login'
+  },
+  {
+    component: SignupComponent,
+    path: 'signup'
+  },
+  {
+    component: QuizComponent,
+    path: 'quiz/:subject/:number/:diff'
   }
 ];
 

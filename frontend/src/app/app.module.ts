@@ -1,18 +1,28 @@
+import { AuthService } from 'src/app/core/auth.service';
 import { MaterialModule } from './material.module';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ControlContainer, FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LayoutModule } from '@angular/cdk/layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './views/login/login.component';
+import { SignupComponent } from './views/signup/signup.component';
 import { HomepageComponent } from './views/homepage/homepage.component';
 import { ProgressComponent } from './views/progress/progress.component';
 import { SubjectComponent } from './views/subject/subject.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './shared/main-nav/main-nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
 import { QuestionListComponent } from './shared/question-list/question-list.component';
-import { HttpClientModule } from '@angular/common/http'
+import { QuizComponent } from './views/quiz/quiz.component';
+import { QuestionComponent } from './shared/question/question.component';
+import { AuthGuard } from './core/auth.guard';
+import { QuizCreatorComponent } from './views/quiz-creator/quiz-creator.component';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +32,11 @@ import { HttpClientModule } from '@angular/common/http'
     SubjectComponent,
     MainNavComponent,
     QuestionListComponent,
+    QuizComponent,
+    LoginComponent,
+    SignupComponent,
+    QuestionComponent,
+    QuizCreatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,9 +45,15 @@ import { HttpClientModule } from '@angular/common/http'
     BrowserAnimationsModule,
     LayoutModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
+  providers: [AuthService, AuthGuard, FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,4 @@
+import { QuizAddComponent } from './views/quiz-add/quiz-add.component';
 import { AuthGuard } from './core/auth.guard';
 import { SignupComponent } from './views/signup/signup.component';
 import { NgModule } from '@angular/core';
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     component: LoginComponent,
     path: 'login'
+  },
+  {
+    component: QuizAddComponent,
+    path: 'quiz-add'
   },
   {
     component: SignupComponent,

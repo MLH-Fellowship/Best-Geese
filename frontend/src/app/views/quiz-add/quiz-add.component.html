@@ -1,0 +1,75 @@
+<div fxLayout="row wrap" fxLayoutAlign="space-evenly center" fxFlexFill>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div mat-card-avatar class="image"></div>
+            <mat-card-title>Enter Text</mat-card-title>
+            <mat-card-subtitle>We will build a quiz for you!</mat-card-subtitle>
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <mat-card-content>
+            <form class="example-form">
+                <mat-form-field class="textInput">
+                    <mat-label>Enter a paragraph</mat-label>
+                    <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" placeholder="Ex. 'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                    bred for hunting.'"></textarea>
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions fxLayoutAlign="center">
+            <button mat-raised-button>Submit</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div mat-card-avatar class="image"></div>
+            <mat-card-title>Create your own!</mat-card-title>
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <mat-card-content>
+            <form [formGroup]="form" fxLayoutAlign="stretch" fxLayout="column" class="quiz-form">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Subject</mat-label>
+                    <input matInput formControlName="subject" placeholder="Enter Subject" type="text">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Difficulty</mat-label>
+                    <mat-select formControlName="difficulty">
+                        <mat-option *ngFor="let level of levels" [value]="level.value">
+                            {{level.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Question</mat-label>
+                    <input formControlName="question" matInput placeholder="Enter Question" type="text">
+                </mat-form-field>
+                <div fxLayoutGap="16px grid">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Choice 1</mat-label>
+                        <input formControlName="option_1" matInput placeholder="Enter Answer 1" type="text">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Choice 2</mat-label>
+                        <input formControlName="option_2" matInput placeholder="Enter Answer 2" type="text">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Choice 3</mat-label>
+                        <input formControlName="option_3" matInput placeholder="Enter Answer 3" type="text">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Choice 4</mat-label>
+                        <input formControlName="option_4" matInput placeholder="Enter Answer 4" type="text">
+                    </mat-form-field>
+                </div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Correct Answer</mat-label>
+                    <input formControlName="correct_answer" matInput placeholder="Enter Correct Answer" type="text">
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions fxLayoutAlign="center">
+            <button mat-raised-button>Submit</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

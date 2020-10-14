@@ -1,5 +1,10 @@
 <div>
-    <h2 fxLayoutAlign="center center">Subjects</h2>
+    <div fxLayoutAlign="center center">
+        <h1>Subjects</h1>
+    </div>
+    <div fxLayoutAlign="center center">
+        <a class="new-subject" routerLink="/quiz-add" mat-raised-button>New</a>
+    </div>
 
     <div class="content" fxLayout="row wrap" fxLayoutGap="16px grid" fxLayoutAlign="center">
         <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let subject of subjects">

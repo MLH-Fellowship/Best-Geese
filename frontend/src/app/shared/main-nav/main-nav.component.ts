@@ -1,7 +1,9 @@
+import { AuthService } from 'src/app/core/auth.service';
 import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'main-nav',
@@ -16,6 +18,15 @@ export class MainNavComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    public _authService: AuthService,
+    private _router: Router
+    ) {}
 
+    loginUser() {
+      console.log("Logged out!")
+      this._authService.signOut()
+      this._router.navigate([''])
+    }
 }

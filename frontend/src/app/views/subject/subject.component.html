@@ -1,9 +1,50 @@
-<h2>Subjects</h2>
+<div>
+    <h2 fxLayoutAlign="center center">Subjects</h2>
+    <!-- </div>
+<div fxFlex="25%" *ngFor="let subject of subjects">
+    <div fxLayout="row">
+        <mat-card-header>
+            <mat-card-title>{{ subject.name}}</mat-card-title>
+        </mat-card-header>
+    </div>
+</div> -->
 
-<div *ngFor="let subject of subjects;">
-    <h3>
-        <a [title]="subject.name">
-            {{ subject.name}}
-        </a>
-    </h3>
-</div>
+    <div class="content" fxLayout="row wrap" fxLayoutGap="16px grid" fxLayoutAlign="center">
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let subject of subjects">
+            <mat-accordion>
+                <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title fxLayoutAlign="center center">
+                            {{subject.name}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <form class="quiz-form">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Difficulty</mat-label>
+                            <input matInput placeholder="Ex. Pizza" value="Sushi">
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Favorite food</mat-label>
+                            <input matInput placeholder="Ex. Pizza" value="Sushi">
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Favorite food</mat-label>
+                            <input matInput placeholder="Ex. Pizza" value="Sushi">
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Input</mat-label>
+                            <input matInput>
+                        </mat-form-field><br>
+                        <mat-label>Difficulty</mat-label>
+                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <label for="vehicle1"> I have a bike</label><br>
+                        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                        <label for="vehicle2"> I have a car</label><br>
+                        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                        <label for="vehicle3"> I have a boat</label><br><br>
+                        <button mat-button (click)="openDialog()">Launch dialog</button>
+                    </form>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>

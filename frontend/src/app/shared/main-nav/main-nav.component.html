@@ -18,7 +18,7 @@
       <div fxFlex dir="rtl" fxLayoutGap="20px" fxLayout="row">
         <a mat-list-item class="toolbar-item" routerLink='login' *ngIf="!_authService.isAuthenticated()">Login</a>
         <a mat-list-item class="toolbar-item" routerLink='signup' *ngIf="!_authService.isAuthenticated()">Sign up</a>
-        <a mat-list-item class="toolbar-item" routerLink='login' *ngIf="!_authService.isAuthenticated()" (click)="_authService.signOut()">Logout</a>
+        <a mat-list-item class="toolbar-item" routerLink='login' *ngIf="_authService.isAuthenticated()" (click)="_authService.signOut()">Logout</a>
       </div>
     </mat-toolbar>
     <router-outlet></router-outlet>

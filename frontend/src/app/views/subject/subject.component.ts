@@ -1,3 +1,4 @@
+import { QuizCreatorComponent } from './../quiz-creator/quiz-creator.component';
 import { subjects } from './../../subjects';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -18,6 +19,6 @@ export class SubjectComponent implements OnInit {
 
   openDialog() {
     const dialogConfig = new MatDialogConfig();
-    this.dialog.open(DialogBodyComponent, dialogConfig)
+    this.dialog.open(QuizCreatorComponent, dialogConfig)
   }
 }

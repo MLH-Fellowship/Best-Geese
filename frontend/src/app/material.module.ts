@@ -10,6 +10,8 @@ import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatRadioModule } from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
 
 
 // import { constants } from 'buffer';
@@ -26,6 +28,8 @@ const MaterialComponents = [
   MatExpansionModule,
   FlexLayoutModule,
   MatDialogModule,
+  MatRadioModule,
+  MatSelectModule,
 ];
 
 @NgModule({

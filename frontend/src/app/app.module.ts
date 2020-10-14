@@ -21,6 +21,7 @@ import { QuestionListComponent } from './shared/question-list/question-list.comp
 import { QuizComponent } from './views/quiz/quiz.component';
 import { QuestionComponent } from './shared/question/question.component';
 import { AuthGuard } from './core/auth.guard';
+import { QuizCreatorComponent } from './views/quiz-creator/quiz-creator.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { AuthGuard } from './core/auth.guard';
     LoginComponent,
     SignupComponent,
     QuestionComponent,
+    QuizCreatorComponent,
   ],
   imports: [
     BrowserModule,

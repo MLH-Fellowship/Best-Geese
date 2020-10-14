@@ -18,6 +18,7 @@ import { SubjectComponent } from './views/subject/subject.component';
 import { MainNavComponent } from './shared/main-nav/main-nav.component';
 import { QuestionListComponent } from './shared/question-list/question-list.component';
 import { QuizComponent } from './views/quiz/quiz.component';
+import { QuestionComponent } from './shared/question/question.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { QuizComponent } from './views/quiz/quiz.component';
     QuizComponent,
     LoginComponent,
     SignupComponent,
+    QuestionComponent,
   ],
   imports: [
     BrowserModule,

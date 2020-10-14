@@ -1,1 +1,4 @@
-<p>quiz works!</p>
+<article>
+    <app-question *ngFor="let question of questions" [question]="question"></app-question>
+    <button (click)="getQuiz()">Get Quiz!</button>
+</article>

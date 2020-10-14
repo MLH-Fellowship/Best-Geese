@@ -24,13 +24,13 @@ jwt = JWTManager(app)
 
 
 
-app.config['MONGODB_SETTINGS'] = {
-    'host': 'mongodb://localhost/BestGeese'
-}
-
-# MONGODB_SETTINGS = {
-#     'host': 'mongodb://localhost/movie-bag'
+# app.config['MONGODB_SETTINGS'] = {
+#     'host': 'mongodb://localhost/BestGeese'
 # }
+
+MONGODB_SETTINGS = {
+    'host': 'mongodb://localhost/best-geese'
+}
 
 initialize_db(app)
 initialize_routes(api)

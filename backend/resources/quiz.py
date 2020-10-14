@@ -37,7 +37,7 @@ class QuizApi(Resource):
         if (tag not in ['biology','physics','chemistry','mathematics','computer science','art']) or (tag is None):
             return InvalidTagError
         difficulty = request.args.get('difficulty').lower()
-        if (difficulty not in ['easy','medium','hard','mix']) or (difficulty is None):
+        if (difficulty not in ['easy','medium','hard','mix']) or (difficulty is None): #
             return InvalidDifficultyError,HTTPStatus.BAD_REQUEST
 
         # Number of Questions
@@ -47,8 +47,9 @@ class QuizApi(Resource):
 
         try:
             if difficulty == 'mix':
-                questions = Question.objects(tag=tag).limit(num_of_questions).to_json()
-            questions = Question.objects(tag=tag,difficulty=difficulty).limit(num_of_questions).to_json()
+                 questions = Question.objects(tag=tag).limit(num_of_questions).to_json()
+            else:
+                questions = Question.objects(tag=tag,difficulty=difficulty).limit(num_of_questions).to_json()
             return Response(questions, mimetype="application/json", status = 200)
         except DoesNotExist:
             raise QuestionNotExistsError

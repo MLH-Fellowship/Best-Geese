@@ -3,7 +3,7 @@
 
     <div class="content" fxLayout="row wrap" fxLayoutGap="16px grid" fxLayoutAlign="center">
         <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let subject of subjects">
-            <button fxLayoutAlign="center center" mat-raised-button (click)="openDialog()">
+            <button fxLayoutAlign="center center" mat-raised-button (click)="openDialog(subject)">
                 {{subject.name}}
             </button>
         </div>

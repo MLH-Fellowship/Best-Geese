@@ -1,10 +1,10 @@
 <h2 mat-dialog-title fxLayoutAlign="center center">Quiz Creator</h2>
 
 <mat-dialog-content>
-    <form fxLayoutAlign="stretch" fxLayout="column" class="quiz-form">
+    <form [formGroup]="form" fxLayoutAlign="stretch" fxLayout="column" class="quiz-form">
         <mat-form-field appearance="fill">
             <mat-label>Difficulty</mat-label>
-            <mat-select>
+            <mat-select formControlName="difficulty">
                 <mat-option *ngFor="let level of levels" [value]="level.value">
                     {{level.viewValue}}
                 </mat-option>
@@ -12,7 +12,7 @@
         </mat-form-field><br>
         <mat-form-field class="example-full-width">
             <mat-label>Number of Questions</mat-label>
-            <input matInput placeholder="Enter Number" type="number">
+            <input matInput placeholder="Enter Number" type="number" formControlName="questions">
         </mat-form-field>
     </form>
 </mat-dialog-content>

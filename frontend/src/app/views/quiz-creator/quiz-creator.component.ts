@@ -1,6 +1,6 @@
 import { debugOutputAstAsTypeScript } from '@angular/compiler';
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 interface Level {
   value: string;
@@ -17,21 +17,21 @@ export class QuizCreatorComponent implements OnInit {
   description: string;
 
   constructor(
-    private fb: FormBuilder,
+    public fb: FormBuilder,
     public dialogRef: MatDialogRef<QuizCreatorComponent>,
     @Inject(MAT_DIALOG_DATA) {questions, difficulty, subject}
   ) {
     this.form = fb.group({
       questions: [questions],
       difficulty: [difficulty],
-      subject: [subject]
+      subject: [subject.name.toLowerCase()]
     });
   }
 
   ngOnInit(): void {
-    this.form = this.fb.group({
-      description: [this.description, []]
-    });
+    //this.form = this.fb.group({
+      //description: [this.description, []]
+    //});
   }
 
   close() {
@@ -43,10 +43,10 @@ export class QuizCreatorComponent implements OnInit {
   }
 
   levels: Level[] = [
-    {value: 'easy-0', viewValue: 'Easy'},
-    {value: 'medium-1', viewValue: 'Medium'},
-    {value: 'hard-2', viewValue: 'Hard'},
-    {value: 'mixed-2', viewValue: 'Mixed'}
+    {value: 'easy', viewValue: 'Easy'},
+    {value: 'medium', viewValue: 'Medium'},
+    {value: 'hard', viewValue: 'Hard'},
+    {value: 'mixed', viewValue: 'Mixed'}
   ];
 
 }

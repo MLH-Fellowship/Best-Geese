@@ -3,7 +3,7 @@ import { MaterialModule } from './material.module';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ControlContainer, FormBuilder, FormsModule } from '@angular/forms';
+import { ControlContainer, FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -47,7 +47,8 @@ import { QuizCreatorComponent } from './views/quiz-creator/quiz-creator.componen
     MaterialModule,
     HttpClientModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

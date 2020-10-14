@@ -17,7 +17,7 @@ export class SubjectComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openDialog() {
+  openDialog(subject) {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
@@ -25,10 +25,8 @@ export class SubjectComponent implements OnInit {
     // how do we pass the button that we clicked on?
     dialogConfig.data = {
       id: 1,
-      title: 'Angular For Beginners'
+      subject: subject
     };
-
-    this.dialog.open(QuizCreatorComponent, dialogConfig);
 
     const dialogRef = this.dialog.open(QuizCreatorComponent, dialogConfig);
 

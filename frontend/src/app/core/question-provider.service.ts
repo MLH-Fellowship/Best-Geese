@@ -27,7 +27,7 @@ export class QuestionProviderService {
 
    /// This gets all questions from the database. DO NOT USE THIS UNLESS YOU ARE WILLING TO WAIT.
    public getAllQuestions(): void {
-     this.http.get(`${this.backendUrl}/questions`)
+     this.http.get(`${this.backendUrl}/questions`, {headers: this.authHeader})
      .subscribe(response => this._questions.next(response as IQuestion[]));
    }
 

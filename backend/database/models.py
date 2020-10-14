@@ -58,3 +58,14 @@ class User(gj.Document):
     def check_password(self,password):
         return check_password_hash(self.password,password)
 
+# class UserStats(User):
+#     number_of_games_played = db.IntField(default=0),
+#     number_of_games_won = db.IntField(default=0),
+#     number_of_games_list = db.IntField(default=0)
+
+
+class QuestionText(gj.Document):
+    text = db.StringField(required=True)
+    tag = db.StringField(required=True)
+    difficulty = db.StringField(required=True)
+    num_of_questions = db.IntField(required = True)

@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/core/auth.service';
 import { MaterialModule } from './material.module';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,6 +20,7 @@ import { MainNavComponent } from './shared/main-nav/main-nav.component';
 import { QuestionListComponent } from './shared/question-list/question-list.component';
 import { QuizComponent } from './views/quiz/quiz.component';
 import { QuestionComponent } from './shared/question/question.component';
+import { AuthGuard } from './core/auth.guard';
 
 
 @NgModule({
@@ -48,7 +50,7 @@ import { QuestionComponent } from './shared/question/question.component';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

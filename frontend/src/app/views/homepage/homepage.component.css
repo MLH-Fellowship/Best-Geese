@@ -1,0 +1,11 @@
+button {
+    width: 25vmax;
+    height: 25vmax;
+    margin: 100px;
+    font-size: 2vw;
+}
+
+button:hover {
+    background-color: #03DAC5;
+    ;
+}

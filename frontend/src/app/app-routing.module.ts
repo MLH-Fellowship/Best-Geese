@@ -1,3 +1,4 @@
+import { AuthGuard } from './core/auth.guard';
 import { SignupComponent } from './views/signup/signup.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -11,7 +12,8 @@ const routes: Routes = [
   {
     component: HomepageComponent,
     path: 'index',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    // canActivate: [AuthGuard]
   },
   {
     redirectTo: 'index',

@@ -1,7 +1,7 @@
 import { debugOutputAstAsTypeScript } from '@angular/compiler';
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 interface Level {
   value: string;
   viewValue: string;
@@ -19,9 +19,13 @@ export class QuizCreatorComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<QuizCreatorComponent>,
-    @Inject(MAT_DIALOG_DATA) data
+    @Inject(MAT_DIALOG_DATA) {questions, difficulty, subject}
   ) {
-    this.description = data.description;
+    this.form = fb.group({
+      questions: [questions],
+      difficulty: [difficulty],
+      subject: [subject]
+    });
   }
 
   ngOnInit(): void {

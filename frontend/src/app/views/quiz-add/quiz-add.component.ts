@@ -14,17 +14,16 @@ export class QuizAddComponent implements OnInit {
   form: FormGroup;
   constructor(
     public fb: FormBuilder,
-    @Inject(FormGroup) { subject, difficulty, question, option_1, option_2, option_3, option_4, correct_answer }
   ) {
     this.form = fb.group({
-      tag: [subject],
-      difficulty: [difficulty],
-      question: [question],
-      option_1: [option_1],
-      option_2: [option_2],
-      option_3: [option_3],
-      option_4: [option_4],
-      correct_answer: [correct_answer]
+      tag: [''],
+      difficulty: [''],
+      question: [''],
+      option_1: [''],
+      option_2: [''],
+      option_3: [''],
+      option_4: [''],
+      correct_answer: ['']
     });
   }
 

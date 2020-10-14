@@ -11,6 +11,8 @@ import { IQuestion } from 'src/app/interfaces/iquestion';
 export class QuizComponent implements OnInit {
 
   questions: IQuestion[];
+  answers = new Map();
+  result = "";
   constructor(public provider: QuestionProviderService, route: ActivatedRoute) {
     let num_of_questions: number;
     let subject: string;
@@ -22,6 +24,23 @@ export class QuizComponent implements OnInit {
     provider.questions$.subscribe(response => {this.questions = response});
   }
 
+  onAnswer(questionState) {
+    this.answers.set(questionState[0], questionState[1]);
+  }
+
+  finish() {
+    console.log("Answers size: ", this.answers.size)
+    console.log("Questions length: ", this.questions.length)
+    if (this.answers.size < this.questions.length) {
+      this.result = "Please answer all questions!"
+      return;
+    } else {
+      let an = [];
+      this.answers.forEach(el => an.push(el));
+      let correct = an.filter(el => el == true);
+      this.result = `You got ${correct.length} out of ${this.questions.length} correct!`
+    }
+  }
   ngOnInit(): void {
   }
 

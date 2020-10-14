@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from "@angular/material/dialog";
+import { debugOutputAstAsTypeScript } from '@angular/compiler';
+import { Component, OnInit, Inject } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 interface Level {
   value: string;
   viewValue: string;
@@ -11,17 +13,31 @@ interface Level {
   styleUrls: ['./quiz-creator.component.css']
 })
 export class QuizCreatorComponent implements OnInit {
- 
+  form: FormGroup;
+  description: string;
+
   constructor(
-    public dialogRef: MatDialogRef<QuizCreatorComponent>
-  ) { }
+    private fb: FormBuilder,
+    public dialogRef: MatDialogRef<QuizCreatorComponent>,
+    @Inject(MAT_DIALOG_DATA) data
+  ) {
+    this.description = data.description;
+  }
 
   ngOnInit(): void {
+    this.form = this.fb.group({
+      description: [this.description, []]
+    });
   }
 
   close() {
-    this.dialogRef.close("Thanks for using me!");
+    this.dialogRef.close();
   }
+
+  save() {
+    this.dialogRef.close(this.form.value);
+  }
+
   levels: Level[] = [
     {value: 'easy-0', viewValue: 'Easy'},
     {value: 'medium-1', viewValue: 'Medium'},

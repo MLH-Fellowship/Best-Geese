@@ -24,6 +24,12 @@ class QuestionNotExistsError(Exception):
 class EmailAlreadyExistsError(Exception):
     pass
 
+# class EmailDoesnotExistsError(Exception):
+#     pass
+
+# class BadTokenError(Exception):
+#     pass
+
 class UnauthorizedError(Exception):
     pass
 
@@ -71,6 +77,14 @@ errors = {
          "message": "Invalid username or password",
          "status": HTTPStatus.UNAUTHORIZED
      },
+    # "EmailDoesnotExistsError" : {
+    #     "message" : "Couldn't find the user with given email address",
+    #     "status" : HTTPStatus.BAD_REQUEST
+    # },
+    #  "BadTokenError":{
+    #      "message" : "Invalid token",
+    #      "status" : HTTPStatus.FORBIDDEN
+    #  },
      "InvalidTagError" :{
          "message" : 'Tags parameter is invalid',
          "status": HTTPStatus.BAD_REQUEST 

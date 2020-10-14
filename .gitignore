@@ -7,15 +7,23 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+test_get_n_questions.py
 
 # C extensions
 *.so
 
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 # Distribution / packaging
 .Python
-env/
 build/
 vscode/
+embeddings/
 develop-eggs/
 dist/
 downloads/

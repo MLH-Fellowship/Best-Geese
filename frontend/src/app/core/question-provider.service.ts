@@ -64,7 +64,7 @@ export class QuestionProviderService {
     * @param subject 
     */
    public getQuiz(questions: number, difficulty: string, subject: string): void {
-    this.http.get(`${this.backendUrl}/play/?tag=${subject}&difficulty=${difficulty}&num_of_questions=${questions}`, {
+    this.http.get(`${this.backendUrl}/quiz/?tag=${subject}&difficulty=${difficulty}&num_of_questions=${questions}`, {
       headers: this.authHeader,
     }).subscribe(response => this._questions.next(response as IQuestion[]));
    }

@@ -1,3 +1,4 @@
+import { QuestionProviderService } from 'src/app/core/question-provider.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 interface Level {
@@ -14,6 +15,7 @@ export class QuizAddComponent implements OnInit {
   form: FormGroup;
   constructor(
     public fb: FormBuilder,
+    private _question: QuestionProviderService,
   ) {
     this.form = fb.group({
       tag: [''],
@@ -36,5 +38,10 @@ export class QuizAddComponent implements OnInit {
     { value: 'hard-2', viewValue: 'Hard' },
     { value: 'mixed-2', viewValue: 'Mixed' }
   ];
+
+  addQuestion() {
+    console.log(this.form)
+    // this._question.addQuestion(this.form)
+  }
 
 }

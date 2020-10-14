@@ -1,6 +1,6 @@
 import { debugOutputAstAsTypeScript } from '@angular/compiler';
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 interface Level {
   value: string;
@@ -22,8 +22,8 @@ export class QuizCreatorComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) {questions, difficulty, subject}
   ) {
     this.form = fb.group({
-      questions: [questions],
-      difficulty: [difficulty],
+      questions: [questions, [Validators.min(10), Validators.max(50), Validators.required]],
+      difficulty: [difficulty, Validators.required],
       subject: [subject.name.toLowerCase()]
     });
   }
@@ -39,7 +39,9 @@ export class QuizCreatorComponent implements OnInit {
   }
 
   save() {
-    this.dialogRef.close(this.form.value);
+    if (this.form.valid){
+      this.dialogRef.close(this.form.value);
+    }
   }
 
   levels: Level[] = [

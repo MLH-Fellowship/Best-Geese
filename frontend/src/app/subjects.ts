@@ -12,7 +12,7 @@ export const subjects = [
         description: ''
     },
     {
-        name: 'History',
+        name: 'Mathematics',
         description: ''
     },
     {

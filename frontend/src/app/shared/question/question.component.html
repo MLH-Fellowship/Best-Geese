@@ -1,5 +1,9 @@
-<article>
-    <p>{{question.question}}</p>
-    <p>{{question.option_1}}</p>
-</article>
-
+<mat-card>
+    <mat-card-title>{{question.question}}</mat-card-title>
+    <mat-selection-list #optionList [multiple]="false">
+        <mat-list-option *ngFor='let option of options' [value]="option">
+            {{ option }}
+        </mat-list-option>
+    <mat-card-subtitle>{{optionList.selectedOptions.selected[0]?.value}}</mat-card-subtitle>
+    </mat-selection-list>
+</mat-card>

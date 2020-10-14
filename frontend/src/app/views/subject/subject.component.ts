@@ -2,6 +2,7 @@ import { QuizCreatorComponent } from './../quiz-creator/quiz-creator.component';
 import { subjects } from './../../subjects';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-subject',
@@ -11,7 +12,8 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 export class SubjectComponent implements OnInit {
   subjects = subjects;
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -31,7 +33,11 @@ export class SubjectComponent implements OnInit {
     const dialogRef = this.dialog.open(QuizCreatorComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
-      data => console.log("Dialog output:", data)
+      data => {
+        if (data) {
+          this.router.navigateByUrl(`/quiz/${data.subject}/${data.questions}/${data.difficulty}`, {skipLocationChange: true});
+        }
+      }
     );
   }
 }

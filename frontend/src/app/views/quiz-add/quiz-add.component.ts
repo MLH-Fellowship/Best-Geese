@@ -41,7 +41,15 @@ export class QuizAddComponent implements OnInit {
 
   addQuestion() {
     console.log(this.form)
-    // this._question.addQuestion(this.form)
+    this._question.addQuestion({
+      tag: this.tag,
+      difficulty: this.difficulty,
+      question: [''],
+      option_1: [''],
+      option_2: [''],
+      option_3: [''],
+      option_4: [''],
+      correct_answer: ['']this.form})
   }
 
 }

@@ -1,6 +1,6 @@
 import { QuestionProviderService } from 'src/app/core/question-provider.service';
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, FormControl } from '@angular/forms';
 interface Level {
   value: string;
   viewValue: string;
@@ -33,23 +33,24 @@ export class QuizAddComponent implements OnInit {
   }
 
   levels: Level[] = [
-    { value: 'easy-0', viewValue: 'Easy' },
-    { value: 'medium-1', viewValue: 'Medium' },
-    { value: 'hard-2', viewValue: 'Hard' },
-    { value: 'mixed-2', viewValue: 'Mixed' }
+    { value: 'easy', viewValue: 'Easy' },
+    { value: 'medium', viewValue: 'Medium' },
+    { value: 'hard', viewValue: 'Hard' },
+    { value: 'mixed', viewValue: 'Mixed' }
   ];
 
   addQuestion() {
     console.log(this.form)
     this._question.addQuestion({
-      tag: this.tag,
-      difficulty: this.difficulty,
-      question: [''],
-      option_1: [''],
-      option_2: [''],
-      option_3: [''],
-      option_4: [''],
-      correct_answer: ['']this.form})
+      tag: this.form.value.tag,
+      difficulty: this.form.value.difficulty,
+      question: this.form.value.question,
+      option_1: this.form.value.option_1,
+      option_2: this.form.value.option_2,
+      option_3: this.form.value.option_3,
+      option_4: this.form.value.option_4,
+      correct_answer: this.form.value.correct_answer
+    })
   }
 
 }

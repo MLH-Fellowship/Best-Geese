@@ -27,6 +27,6 @@ export class MainNavComponent {
     loginUser() {
       console.log("Logged out!")
       this._authService.signOut()
-      this._router.navigate([''])
+      this._router.navigate(['/'])
     }
 }

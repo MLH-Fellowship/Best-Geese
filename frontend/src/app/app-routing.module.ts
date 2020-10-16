@@ -15,7 +15,7 @@ const routes: Routes = [
     component: HomepageComponent,
     path: 'index',
     pathMatch: 'full',
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     redirectTo: 'index',

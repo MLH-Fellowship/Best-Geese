@@ -22,6 +22,7 @@ import { QuizComponent } from './views/quiz/quiz.component';
 import { QuestionComponent } from './shared/question/question.component';
 import { AuthGuard } from './core/auth.guard';
 import { QuizCreatorComponent } from './views/quiz-creator/quiz-creator.component';
+import { QuizAddComponent } from './views/quiz-add/quiz-add.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { QuizCreatorComponent } from './views/quiz-creator/quiz-creator.componen
     SignupComponent,
     QuestionComponent,
     QuizCreatorComponent,
+    QuizAddComponent
   ],
   imports: [
     BrowserModule,

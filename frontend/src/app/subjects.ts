@@ -16,71 +16,15 @@ export const subjects = [
         description: ''
     },
     {
-        name: 'Biology',
+        name: 'Economics',
         description: ''
     },
     {
-        name: 'Chemistry',
+        name: 'Ethnic Studies',
         description: ''
     },
     {
-        name: 'History',
-        description: ''
-    },
-    {
-        name: 'Biology',
-        description: ''
-    },
-    {
-        name: 'Chemistry',
-        description: ''
-    },
-    {
-        name: 'History',
-        description: ''
-    },
-    {
-        name: 'Biology',
-        description: ''
-    },
-    {
-        name: 'Chemistry',
-        description: ''
-    },
-    {
-        name: 'History',
-        description: ''
-    },
-    {
-        name: 'Biology',
-        description: ''
-    },
-    {
-        name: 'Chemistry',
-        description: ''
-    },
-    {
-        name: 'History',
-        description: ''
-    },
-    {
-        name: 'Biology',
-        description: ''
-    },
-    {
-        name: 'Chemistry',
-        description: ''
-    },
-    {
-        name: 'History',
-        description: ''
-    },
-    {
-        name: 'Biology',
-        description: ''
-    },
-    {
-        name: 'Chemistry',
+        name: 'Software Engineering',
         description: ''
     }
 ];

@@ -17,6 +17,7 @@ pandas = "*"
 spacy = "*"
 gensim = "*"
 sklearn = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "3.8"

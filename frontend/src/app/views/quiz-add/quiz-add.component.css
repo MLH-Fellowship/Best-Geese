@@ -1,0 +1,13 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+.image {
+    background-image: url('https://static.thenounproject.com/png/30143-200.png');
+    background-size: cover;
+}
+
+.textInput {
+    width: 100%;
+}
+

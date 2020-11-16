@@ -2,6 +2,16 @@
     padding: 0 10%;
 }
 
+.new-subject {
+    width: 10%;
+    margin-bottom: 16px;
+    align-self: flex-end;
+}
+
+h1 {
+    padding-top: 2vmin;
+}
+
 button {
     width: 100%;
     height: 10vh;

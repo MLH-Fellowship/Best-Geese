@@ -21,10 +21,6 @@ export class SubjectComponent implements OnInit {
 
   openDialog(subject) {
     const dialogConfig = new MatDialogConfig();
-
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    // how do we pass the button that we clicked on?
     dialogConfig.data = {
       id: 1,
       subject: subject

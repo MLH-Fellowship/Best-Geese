@@ -55,12 +55,7 @@ Database and backend services: Shayan Riyaz
 
 ## Built with 
 
-<img src="https://img.shields.io/badge/typescript%20-%23323330.svg?&style=for-the-badge&logo=typescript&logoColor=blue"/> 
-<img src="https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white"/> 
-<img src="https://img.shields.io/badge/flask%20-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white"/> 
-<img src="https://img.shields.io/badge/angular%20-%23121011.svg?&style=for-the-badge&logo=angular&logoColor=red"/>
-<img src ="https://img.shields.io/badge/MongoDB-%2307405e.svg?&style=for-the-badge&logo=mongodb&logoColor=green"/>
-<img src ="https://img.shields.io/badge/spaCy-%2307405e.svg?&style=for-the-badge&logo=spaCy&logoColor=blue"/>
+<img src="https://img.shields.io/badge/typescript%20-%23323330.svg?&style=for-the-badge&logo=typescript&logoColor=blue"/> <img src="https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white"/> <img src="https://img.shields.io/badge/flask%20-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white"/> <img src="https://img.shields.io/badge/angular%20-%23121011.svg?&style=for-the-badge&logo=angular&logoColor=red"/><img src ="https://img.shields.io/badge/MongoDB-%2307405e.svg?&style=for-the-badge&logo=mongodb&logoColor=green"/><img src ="https://img.shields.io/badge/spaCy-%2307405e.svg?&style=for-the-badge&logo=spaCy&logoColor=blue"/>
 
 |Langauge | Framework | Component|
 |-|-|-|

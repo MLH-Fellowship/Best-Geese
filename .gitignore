@@ -21,6 +21,7 @@ test_get_n_questions.py
 
 # Distribution / packaging
 .Python
+venv/
 build/
 vscode/
 embeddings/
@@ -76,4 +77,5 @@ target/
 
 package-lock.json
 .env
+.env.test
 node_modeules/

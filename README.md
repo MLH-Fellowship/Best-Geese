@@ -11,7 +11,7 @@
 
 ## About
 
-### Minimum Viable Product:
+## Minimum Viable Product:
 
 Students can request a quiz based on subject tags and number of questions they would like in each subject. Each student can input their own questions they'd like to include in the quiz.
 
@@ -40,19 +40,6 @@ Home|Login|Quiz|Quiz Type | Create Quiz |
 2. `sh init.sh`.
 3. Navigate to `http://127.0.0.1:5000/` to view the backend.
 
-## Contributors
-
-Front-end services and UX: Gerald Marquez & David Knox
-
-Database and backend services: Shayan Riyaz
-
-
-
-1. `cd backend`
-2. `sh init.sh`
-3. Navigate to `http://127.0.0.1:5000/` to view the backend
-
-
 ## Built with 
 
 <img src="https://img.shields.io/badge/typescript%20-%23323330.svg?&style=for-the-badge&logo=typescript&logoColor=blue"/> <img src="https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white"/> <img src="https://img.shields.io/badge/flask%20-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white"/> <img src="https://img.shields.io/badge/angular%20-%23121011.svg?&style=for-the-badge&logo=angular&logoColor=red"/><img src ="https://img.shields.io/badge/MongoDB-%2307405e.svg?&style=for-the-badge&logo=mongodb&logoColor=green"/><img src ="https://img.shields.io/badge/spaCy-%2307405e.svg?&style=for-the-badge&logo=spaCy&logoColor=blue"/>
@@ -79,8 +66,6 @@ Database and backend services: Shayan Riyaz
 **Front-end services and UX:** Gerald Marquez & David Knox
 
 **Database and backend services:** Shayan Riyaz
-
-
 
 
 ## License

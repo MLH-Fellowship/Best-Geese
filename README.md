@@ -25,12 +25,6 @@ The View Progress function allows students to view their past history of attempt
 
 Short walkthrough with accompanying screenshots here
 
-## Contributors
-
-Front-end services and UX: Gerald Marquez & David Knox
-
-Database and backend services: Shayan Riyaz
-
 ## How to run
 
 ### Frontend
@@ -41,9 +35,17 @@ Database and backend services: Shayan Riyaz
 5. Navigate to `http://localhost:4200/`
 
 ### Backend
-1.`cd backend`
-2.`sh init.sh`
-3. Navigate to `http://127.0.0.1:5000/` to view the backend
+1. `cd backend`.
+2. `sh init.sh`.
+3. Navigate to `http://127.0.0.1:5000/` to view the backend.
+
+## Contributors
+
+Front-end services and UX: Gerald Marquez & David Knox
+
+Database and backend services: Shayan Riyaz
+
+
 
 [![Slack][Slack-Badge]][Slack]
 [![Videos][Videos-Badge]][Videos]

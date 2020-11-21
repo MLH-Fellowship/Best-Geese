@@ -37,7 +37,7 @@ Home|Login|Quiz|Quiz Type | Create Quiz |
 
 ### Backend
 1. `cd backend`.
-2. `sh init.sh`.
+2. `. init.sh`.
 3. Navigate to `http://127.0.0.1:5000/` to view the backend.
 
 ## Built with 

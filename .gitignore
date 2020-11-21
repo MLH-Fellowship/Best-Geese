@@ -70,3 +70,10 @@ docs/_build/
 
 # PyBuilder
 target/
+
+
+# node 
+
+package-lock.json
+.env
+node_modeules/

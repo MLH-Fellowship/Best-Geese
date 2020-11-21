@@ -21,6 +21,7 @@ test_get_n_questions.py
 
 # Distribution / packaging
 .Python
+venv/
 build/
 vscode/
 embeddings/
@@ -70,3 +71,11 @@ docs/_build/
 
 # PyBuilder
 target/
+
+
+# node 
+
+package-lock.json
+.env
+.env.test
+node_modeules/

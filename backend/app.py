@@ -14,7 +14,7 @@ from flask_jwt_extended import JWTManager
 
 app = Flask(__name__)
 app.config.from_envvar('ENV_FILE_LOCATION')
-#mail = Main(app)
+
 
 # imports requiring app and mail
 from resources.routes import initialize_routes

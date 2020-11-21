@@ -29,11 +29,22 @@ Short walkthrough with accompanying screenshots here
 
 Front-end services and UX: Gerald Marquez & David Knox
 
-Database services: Shayan Riyaz
+Database and backend services: Shayan Riyaz
 
 ## How to run
 
-API currently not exposed.
+### Frontend
+1. Install node.js
+2. `cd frontend`
+3. `npm install @angular/cli`
+4. `ng serve`
+5. Navigate to `http://localhost:4200/`
+
+### Backend
+
+1.`cd backend`
+2.`sh init.sh`
+3. Navigate to `http://127.0.0.1:5000/` to view the backend
 
 [![Slack][Slack-Badge]][Slack]
 [![Videos][Videos-Badge]][Videos]

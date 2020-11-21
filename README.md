@@ -41,7 +41,6 @@ Database and backend services: Shayan Riyaz
 5. Navigate to `http://localhost:4200/`
 
 ### Backend
-
 1.`cd backend`
 2.`sh init.sh`
 3. Navigate to `http://127.0.0.1:5000/` to view the backend
